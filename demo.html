@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=`, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/cascade.js"></script>
+    </head>
+    <body style="padding: 100px; display: flex;">
+        <div id="cascade-div" style="width: 200px;height: 40px;"></div>
+        <div id="cascade-div2" style="width: 200px;height: 40px;"></div>
+        <div id="cascade-div3" style="width: 200px;height: 40px;"></div>
+        <div style="width: 200px; height: 40px;margin: 0 50px;border: 1px solid #eee; text-align: center; line-height: 40px;" onclick="getValue()">点我禁用</div>
+        <div style="width: 200px; height: 40px;margin: 0 50px;border: 1px solid #eee; text-align: center; line-height: 40px;" onclick="setValue()">点我启用</div>
+        <div style="width: 200px; height: 40px;margin: 0 50px;border: 1px solid #eee; text-align: center; line-height: 40px;" onclick="getstatus()">点我获取禁用状态</div>
+    </body>
+    <script>
+        var data = [
+            {
+                value: '1',
+                label: '一级-1',
+                children: [
+                    {
+                        value: '2-1',
+                        label: '二级-1',
+                        children: [
+                            {
+                                value: '3-1',
+                                label: '三级-1',
+                                children: [
+                                    {
+                                        value: '4-1',
+                                        label: '四级-1'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        value: '2-2',
+                        label: '二级-2'
+                    },
+                    {
+                        value: '2-3',
+                        label: '二级-3'
+                    },
+                    {
+                        value: '2-4',
+                        label: '二级-4'
+                    }
+                ]
+            },
+            {
+                value: '2',
+                label: '一级-2'
+            },
+            {
+                value: '3',
+                label: '一级-3'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-12'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            },
+            {
+                value: '4',
+                label: '一级-4'
+            }
+        ]
+        var myselect = new myCascade(data, {
+            elementID: 'cascade-div',
+            onChange: function(value) {
+                console.log('回调函数', value)
+            },
+            search: false,
+            placeholder: '请选择',
+            showBreadcrumb: false
+        })
+        var myselect2 = new myCascade(data, {
+            elementID: 'cascade-div2',
+            onChange: function(value) {
+                console.log('回调函数', value)
+            },
+            search: false,
+            placeholder: '请选择',
+            showBreadcrumb: false
+        })
+        var myselect3 = new myCascade(data, {
+            elementID: 'cascade-div3',
+            onChange: function(value) {
+                console.log('回调函数', value)
+            },
+            search: false,
+            placeholder: '请选择',
+            showBreadcrumb: false
+        })
+        
+        function getValue() {
+            myselect.handleDisable(true)
+        }
+
+        function setValue() {
+            myselect.handleDisable(false)
+        }
+
+        function getstatus() {
+            var disable = myselect.getStatus()
+            console.log('该选择器的禁用状态为：', disable)
+        }
+    </script>
+</html>
